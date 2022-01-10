@@ -1,0 +1,22 @@
+#!/bin/bash
+
+source ./.env
+
+if [ $# -ge 5 ]; then
+    StartDate=`echo "$2 $3"`
+    EndDate=`echo "$4 $5"`
+elif [ $# -ge 3 ]; then
+    StartDate=`echo "$2 $3"`
+    EndDate=`echo "$2 23:59"`
+elif [ $# -ge 2 ]; then
+    StartDate=`echo $2 0:00`
+    EndDate=`echo $2 23:59`
+else
+    exit
+fi
+
+#echo "$#\n$StartDate\n$EndDate\n$KEY"
+
+curl -s -X POST -H "Content-Type: application/json" -d "{\"value1\":\"$1\",\"value2\":\"$StartDate\",\"value3\":\"$EndDate\"}" https://maker.ifttt.com/trigger/GCalCli/with/key/$KEY>/dev/null
+
+
