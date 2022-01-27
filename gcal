@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./.env
+source ~/.gcal_env
 
 if [ $# -ge 5 ]; then
     StartDate=`echo "$2 $3"`
