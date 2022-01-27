@@ -5,6 +5,9 @@ source ~/.gcal_env
 if [ $# -ge 5 ]; then
     StartDate=`echo "$2 $3"`
     EndDate=`echo "$4 $5"`
+elif [ $# -ge 4 ]; then
+    StartDate=`echo "$2 $3"`
+    EndDate=`echo "$2 $4"`
 elif [ $# -ge 3 ]; then
     StartDate=`echo "$2 $3"`
     EndDate=`echo "$2 23:59"`
